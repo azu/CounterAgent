@@ -12,6 +12,6 @@ Pod::Spec.new do |s|
   s.license      = 'MIT'
   s.author       = { "azu" => "azuciao@gmail.com" }
   s.source       = { :git => "https://github.com/azu/CounterAgent.git", :tag => "0.0.1" }
-  s.source_files = 'Classes', 'Lib/**/*.{h,m}'
+  s.source_files = 'Lib/**/*.{h,m}'
   s.requires_arc = true
 end
