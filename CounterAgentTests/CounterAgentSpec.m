@@ -99,6 +99,17 @@ void (^when)(NSString *, KWVoidBlock) = ^(NSString *aDescription, KWVoidBlock aB
                     [counterAgent runObserver:self selector:@selector(failCall) whenCount:currentCount + 1];
                 });
             });
+            context(@"twice call , when same count ", ^{
+                NSUInteger currentCount = 1;
+                beforeEach(^{
+                    [counterAgent stub:@selector(loadCurrentCount) andReturn:theValue(currentCount)];
+                });
+                it(@"should be called once", ^{
+                    [[self should] receive:@selector(successCall) withCount:1];
+                    [counterAgent runObserver:self selector:@selector(successCall) whenCount:currentCount];
+                    [counterAgent runObserver:self selector:@selector(successCall) whenCount:currentCount];
+                });
+            });
         });
     });
 }

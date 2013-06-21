@@ -7,6 +7,10 @@
 #import "CounterAgent.h"
 
 
+@interface CounterAgent ()
+@property(nonatomic, strong) NSMutableArray *executedSelectors;
+@end
+
 @implementation CounterAgent {
 
 }
@@ -21,6 +25,17 @@ const struct CounterAgentAttributes CounterAgentAttributes = {
     .total = @"CounterAgent.total"
 };
 
+- (id)init {
+    self = [super init];
+    if (self == nil) {
+        return nil;
+    }
+
+    _executedSelectors = [NSMutableArray array];
+
+    return self;
+}
+
 
 - (NSUInteger)countOfCurrentVersion {
     return [self loadCurrentCount];
@@ -33,8 +48,13 @@ const struct CounterAgentAttributes CounterAgentAttributes = {
 
 - (void)runObserver:(id) observer selector:(SEL) selector whenCount:(NSUInteger) count {
     NSUInteger currentCount = [self countOfCurrentVersion];
-    if (currentCount == count) {
+    NSString *selectorString = NSStringFromSelector(selector);
+    NSString *executedSelectorString = [NSString stringWithFormat:@"%@-%d",
+                                                                  selectorString,
+                                                                  count];
+    if (currentCount == count && ![self.executedSelectors containsObject:executedSelectorString]) {
         [observer performSelectorOnMainThread:selector withObject:nil waitUntilDone:YES];
+        [self.executedSelectors addObject:executedSelectorString];
     }
 }
 
@@ -65,7 +85,7 @@ const struct CounterAgentAttributes CounterAgentAttributes = {
     NSMutableDictionary *mutableDict;
     if (countDict == nil) {
         mutableDict = [NSMutableDictionary dictionary];
-    }else{
+    } else {
         mutableDict = [countDict mutableCopy];
     }
     [mutableDict setValue:@(count) forKey:self.appVersion];// count up
