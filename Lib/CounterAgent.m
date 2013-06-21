@@ -80,7 +80,6 @@ const struct CounterAgentAttributes CounterAgentAttributes = {
 - (NSString *)appVersion {
     NSString *version = [[[NSBundle bundleForClass:[self class]] infoDictionary]
         objectForKey:@"CFBundleShortVersionString"];
-
     return version;
 }
 

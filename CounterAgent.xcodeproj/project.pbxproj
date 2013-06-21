@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		17B5C0F8FD26DFC9FF3EA911 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17B5C285B26B4BD2F7B91CB8 /* InfoPlist.strings */; };
+		17B5C169170AA844B2666470 /* CounterAgentStepSpec.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B5CDDD8282FDECA01035D5 /* CounterAgentStepSpec.m */; };
 		17B5C1BADF16D3D652F15A09 /* CounterAgent.m in Sources */ = {isa = PBXBuildFile; fileRef = 17B5C2C9D9F1386E1EB76418 /* CounterAgent.m */; };
 		17B5C1E59145C24EE3049820 /* Default.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B5CB3411FC8DA93708D00C /* Default.png */; };
 		17B5C24B02D997C0D9F2C9F3 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 17B5C1C956657276E463BA6B /* InfoPlist.strings */; };
@@ -62,6 +63,7 @@
 		17B5CB3411FC8DA93708D00C /* Default.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = Default.png; sourceTree = "<group>"; };
 		17B5CB99FB6DC88987A63AE0 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
 		17B5CC8CC7732A28D5F27AF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		17B5CDDD8282FDECA01035D5 /* CounterAgentStepSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CounterAgentStepSpec.m; sourceTree = "<group>"; };
 		17B5CF2823100B2E08F3590A /* CounterAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CounterAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		573A5592241249A59D22FD3D /* libPods-CounterAgentTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-CounterAgentTests.a"; path = "libPods-CounterAgentTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -161,6 +163,7 @@
 			children = (
 				17B5C947120EC036D0E32F81 /* Supporting Files */,
 				17B5C1D2C3E1AA24D4B0466A /* CounterAgentSpec.m */,
+				17B5CDDD8282FDECA01035D5 /* CounterAgentStepSpec.m */,
 			);
 			path = CounterAgentTests;
 			sourceTree = "<group>";
@@ -334,6 +337,7 @@
 			files = (
 				17B5CB188621AEA818731C9C /* CounterAgent.m in Sources */,
 				17B5C387C97CBFA504F781CA /* CounterAgentSpec.m in Sources */,
+				17B5C169170AA844B2666470 /* CounterAgentStepSpec.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
