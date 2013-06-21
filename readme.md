@@ -4,11 +4,22 @@ Simple Count Manager
 
 ## Installation
 
-- [ ] Describe the installation process
+	pod 'CounterAgent', :podspec => 'https://raw.github.com/azu/CounterAgent/master/CounterAgent.podspec'
 
 ## Usage
 
-- [ ] Write usage instructions
+``` objc
+@interface CounterAgent : NSObject
+#pragma mark - count
+- (NSUInteger)countOfCurrentVersion;
+#pragma mark - count up
+- (void)countUp;
+#pragma mark - fire event when match count
+- (void)runObserver:(id) observer selector:(SEL) selector whenCount:(NSUInteger) count;
+#pragma mark - reset
+- (void)resetCount;
+@end
+```
 
 ## Contributing
 
@@ -17,10 +28,6 @@ Simple Count Manager
 3. Commit your changes: `git commit -am 'Add some feature'`
 4. Push to the branch: `git push origin my-new-feature`
 5. Submit a pull request :D
-
-## License
-
-MIT
 
 # LICENSE
 
