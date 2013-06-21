@@ -26,7 +26,7 @@
 		17B5CD9FEA48FE8A3521DDF1 /* MainStoryboard.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 17B5CEDFFF83CC6609451199 /* MainStoryboard.storyboard */; };
 		17B5CDA48C9D388397AF7617 /* Default-568h@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 17B5C9A863B790203C5DDDF1 /* Default-568h@2x.png */; };
 		17B5CEE8A5EB2EBDDA3E03D5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 17B5CA729E65198C592A1CE9 /* UIKit.framework */; };
-		F4DCDEF93A4F4117999ED5E9 /* libPods-CounterAgentTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 573A5592241249A59D22FD3D /* libPods-CounterAgentTests.a */; settings = {}; };
+		F4DCDEF93A4F4117999ED5E9 /* libPods-CounterAgentTests.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 573A5592241249A59D22FD3D /* libPods-CounterAgentTests.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -65,7 +65,7 @@
 		17B5CC8CC7732A28D5F27AF1 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		17B5CDDD8282FDECA01035D5 /* CounterAgentStepSpec.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CounterAgentStepSpec.m; sourceTree = "<group>"; };
 		17B5CF2823100B2E08F3590A /* CounterAgent.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = CounterAgent.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		573A5592241249A59D22FD3D /* libPods-CounterAgentTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; name = "libPods-CounterAgentTests.a"; path = "libPods-CounterAgentTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+		573A5592241249A59D22FD3D /* libPods-CounterAgentTests.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-CounterAgentTests.a"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -240,8 +240,6 @@
 			mainGroup = 17B5C936D1923C756BB04B6B;
 			productRefGroup = 17B5C0263FFD4D70FB8D8B2E /* Products */;
 			projectDirPath = "";
-			projectReferences = (
-			);
 			projectRoot = "";
 			targets = (
 				17B5CD90387B8F0064E46538 /* CounterAgent */,
@@ -300,7 +298,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
-			showEnvVarsInLog = 1;
 		};
 		F22D16F1E0EC46DF9FF7289C /* Copy Pods Resources */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -315,7 +312,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${SRCROOT}/Pods/Pods-CounterAgentTests-resources.sh\"\n";
-			showEnvVarsInLog = 1;
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -391,6 +387,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CounterAgent/CounterAgent-Prefix.pch";
 				INFOPLIST_FILE = "CounterAgentTests/CounterAgentTests-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -428,6 +425,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CounterAgent/CounterAgent-Prefix.pch";
 				INFOPLIST_FILE = "CounterAgent/CounterAgent-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -445,6 +443,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CounterAgent/CounterAgent-Prefix.pch";
 				INFOPLIST_FILE = "CounterAgentTests/CounterAgentTests-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				TEST_HOST = "$(BUNDLE_LOADER)";
 				WRAPPER_EXTENSION = octest;
@@ -457,6 +456,7 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "CounterAgent/CounterAgent-Prefix.pch";
 				INFOPLIST_FILE = "CounterAgent/CounterAgent-Info.plist";
+				ONLY_ACTIVE_ARCH = NO;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				WRAPPER_EXTENSION = app;
 			};
@@ -503,6 +503,7 @@
 				17B5CA861B220CCE0665D97F /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17B5CCCD572BBD06F0D055F4 /* Build configuration list for PBXNativeTarget "CounterAgentTests" */ = {
 			isa = XCConfigurationList;
@@ -511,6 +512,7 @@
 				17B5C87F6419861F5D11386E /* Debug */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		17B5CE97742DD99C49942CBA /* Build configuration list for PBXProject "CounterAgent" */ = {
 			isa = XCConfigurationList;

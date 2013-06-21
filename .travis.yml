@@ -3,4 +3,5 @@ before_install:
   - brew update
   - brew install xctool
   - gem update cocoapods
-script: xctool test
+script:
+  - xctool -workspace CounterAgent.xcworkspace -scheme xctool clean build test
