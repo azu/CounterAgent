@@ -13,8 +13,9 @@ Simple Count Manager
 #pragma mark - count
 - (NSUInteger)countOfCurrentVersion;
 #pragma mark - count up
++ (void)countUp;
 - (void)countUp;
-#pragma mark - fire event when match count
+#pragma mark - fire event
 - (void)runObserver:(id) observer selector:(SEL) selector whenCount:(NSUInteger) count;
 #pragma mark - reset
 - (void)resetCount;
