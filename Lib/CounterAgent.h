@@ -9,8 +9,10 @@
 
 @interface CounterAgent : NSObject
 #pragma mark - count
+
 - (NSUInteger)countOfCurrentVersion;
 #pragma mark - count up
++ (void)countUp;
 - (void)countUp;
 #pragma mark - fire event
 - (void)runObserver:(id) observer selector:(SEL) selector whenCount:(NSUInteger) count;

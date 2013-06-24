@@ -25,16 +25,16 @@
         });
         context(@"when ver 1.0", ^{
             beforeEach(^{
-                [counterAgent stub:@selector(appVersion) andReturn:@"1.0"];
+                [CounterAgent stub:@selector(appVersion) andReturn:@"1.0"];
             });
             it(@"count up: start is 0", ^{
                 [counterAgent countUp];
                 NSUInteger result = [counterAgent countOfCurrentVersion];
                 [[theValue(result) should] equal:theValue(1)];
             });
-            context(@"when ver 1.1", ^{
+            context(@"update to ver 1.1", ^{
                 beforeEach(^{
-                    [counterAgent stub:@selector(appVersion) andReturn:@"1.1"];
+                    [CounterAgent stub:@selector(appVersion) andReturn:@"1.1"];
                 });
                 it(@"count up: start is 0", ^{
                     [counterAgent countUp];
@@ -42,9 +42,9 @@
                     [[theValue(result) should] equal:theValue(1)];
                 });
             });
-            context(@"when ver 1.2", ^{
+            context(@"update to ver 1.2", ^{
                 beforeEach(^{
-                    [counterAgent stub:@selector(appVersion) andReturn:@"1.2"];
+                    [CounterAgent stub:@selector(appVersion) andReturn:@"1.2"];
                 });
                 it(@"count up: start is 0", ^{
                     [counterAgent countUp];

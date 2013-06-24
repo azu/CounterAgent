@@ -41,6 +41,11 @@ const struct CounterAgentAttributes CounterAgentAttributes = {
     return [self loadCurrentCount];
 }
 
++ (void)countUp {
+    NSUInteger countOfCurrentVersion = [self loadCurrentCount];
+    [self saveCurrentCount:countOfCurrentVersion + 1];
+}
+
 - (void)countUp {
     NSUInteger countOfCurrentVersion = [self countOfCurrentVersion];
     [self saveCurrentCount:countOfCurrentVersion + 1];
@@ -71,8 +76,8 @@ const struct CounterAgentAttributes CounterAgentAttributes = {
 }
 
 
-#pragma mark - private
-- (NSUInteger)loadCurrentCount {
+#pragma mark - private + Class Method
++ (NSUInteger)loadCurrentCount {
     NSDictionary *countDict = [NSKeyedUnarchiver unarchiveObjectWithFile:self.saveFilePath];
     if (countDict == nil) {
         return 0;
@@ -80,7 +85,11 @@ const struct CounterAgentAttributes CounterAgentAttributes = {
     return [countDict[self.appVersion] unsignedIntegerValue];
 }
 
-- (void)saveCurrentCount:(NSUInteger) count {
+- (NSUInteger)loadCurrentCount {
+    return [[self class] loadCurrentCount];
+}
+
++ (void)saveCurrentCount:(NSUInteger) count {
     NSDictionary *countDict = [NSKeyedUnarchiver unarchiveObjectWithFile:self.saveFilePath];
     NSMutableDictionary *mutableDict;
     if (countDict == nil) {
@@ -95,19 +104,31 @@ const struct CounterAgentAttributes CounterAgentAttributes = {
     }
 }
 
+- (void)saveCurrentCount:(NSUInteger) count {
+    [[self class] saveCurrentCount:count];
+}
 
 // current app's version
-- (NSString *)appVersion {
++ (NSString *)appVersion {
     NSString *version = [[[NSBundle bundleForClass:[self class]] infoDictionary]
         objectForKey:@"CFBundleShortVersionString"];
     return version;
 }
 
-- (NSString *)saveFilePath {
+- (NSString *)appVersion {
+    return [[self class] appVersion];
+}
+
++ (NSString *)saveFilePath {
     NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory,
         NSUserDomainMask, YES);
     NSString *documentDirectory = [paths objectAtIndex:0];
     NSString *path = [documentDirectory stringByAppendingPathComponent:@"counter_agent.dat"];
     return path;
+}
+
+- (NSString *)saveFilePath {
+    return [[self class] saveFilePath];
+
 }
 @end

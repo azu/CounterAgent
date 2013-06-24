@@ -69,6 +69,21 @@ void (^when)(NSString *, KWVoidBlock) = ^(NSString *aDescription, KWVoidBlock aB
                 });
             });
         });
+        describe(@"+countUp", ^{
+            context(@"when call method", ^{
+                NSUInteger currentCount = 0;
+                it(@"should call save method", ^{
+                    [[CounterAgent should] receive:@selector(saveCurrentCount:)];
+                    [CounterAgent countUp];
+                });
+
+                it(@"count up countOfCurrent", ^{
+                    [CounterAgent countUp];
+                    NSUInteger result = [counterAgent countOfCurrentVersion];
+                    [[theValue(result) should] equal:theValue(currentCount + 1)];
+                });
+            });
+        });
         describe(@"-runObserver:selector:whenCount:", ^{
             describe(@"when count is 0", ^{
                 int currentCount = 0;
