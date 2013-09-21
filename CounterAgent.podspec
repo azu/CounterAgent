@@ -1,9 +1,3 @@
-#
-# Be sure to run `pod spec lint CounterAgent.podspec' to ensure this is a
-# valid spec and remove all comments before submitting the spec.
-#
-# To learn more about the attributes see http://docs.cocoapods.org/specification.html
-#
 Pod::Spec.new do |s|
   s.name         = "CounterAgent"
   s.version      = "0.0.3"
@@ -11,6 +5,7 @@ Pod::Spec.new do |s|
   s.homepage     = "https://github.com/azu/CounterAgent"
   s.license      = 'MIT'
   s.author       = { "azu" => "azuciao@gmail.com" }
+  s.ios.deployment_target = '5.0'
   s.source       = { :git => "https://github.com/azu/CounterAgent.git", :tag => "0.0.3" }
   s.source_files = 'Lib/**/*.{h,m}'
   s.requires_arc = true
