@@ -4,7 +4,7 @@ Simple Count Manager
 
 ## Installation
 
-	pod 'CounterAgent', :podspec => 'https://raw.github.com/azu/CounterAgent/master/CounterAgent.podspec'
+	pod 'CounterAgent'
 
 ## Usage
 
