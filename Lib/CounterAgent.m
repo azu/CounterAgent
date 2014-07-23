@@ -67,7 +67,7 @@ const struct CounterAgentAttributes CounterAgentAttributes = {
     NSFileManager *fileManager = [NSFileManager defaultManager];
     BOOL exists = [fileManager fileExistsAtPath:self.saveFilePath];
     NSError *error = nil;
-    if (exists == YES) {
+    if (exists) {
         [fileManager removeItemAtPath:self.saveFilePath error:&error];
     }
     if (error != nil) {
@@ -99,7 +99,7 @@ const struct CounterAgentAttributes CounterAgentAttributes = {
     }
     [mutableDict setValue:@(count) forKey:self.appVersion];// count up
     BOOL successful = [NSKeyedArchiver archiveRootObject:mutableDict toFile:self.saveFilePath];
-    if (successful == NO) {
+    if (!successful) {
         NSLog(@"fail save %@", self.saveFilePath);
     }
 }
@@ -108,7 +108,7 @@ const struct CounterAgentAttributes CounterAgentAttributes = {
     [[self class] saveCurrentCount:count];
 }
 
-// current app's version
+// current App's version
 + (NSString *)appVersion {
     NSString *version = [[[NSBundle bundleForClass:[self class]] infoDictionary]
         objectForKey:@"CFBundleShortVersionString"];
